@@ -3,5 +3,7 @@ import 'package:uplabs_ui_challenge_2_flutter/core/core_utilities.dart';
 
 class AppThemeData {
   var themeData = ThemeData(
-      scaffoldBackgroundColor: AppColors().darkBlueColor, appBarTheme: AppBarTheme(color: AppColors().darkBlueColor));
+      scaffoldBackgroundColor: AppColors().darkBlueColor,
+      appBarTheme: AppBarTheme(color: AppColors().darkBlueColor),
+      textTheme: const TextTheme(displaySmall: TextStyle(color: Colors.white)));
 }
