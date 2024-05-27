@@ -36,8 +36,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
 
-  #BottomNavigationBar
-  floating_bottom_navigation_bar: ^1.5.2
+  #SegmentedButton
+  custom_sliding_segmented_control: ^1.8.3
+
+
 
 dev_dependencies:
   flutter_test:

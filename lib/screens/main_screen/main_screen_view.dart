@@ -1,8 +1,12 @@
+import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uplabs_ui_challenge_2_flutter/core/core_utilities.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+  MainScreen({super.key});
+
+  final AppColors colors = AppColors();
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +34,53 @@ class MainScreen extends StatelessWidget {
                   child: const Text("Train"),
                 )
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.5,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(color: colors.lightBlueColor, borderRadius: BorderRadius.circular(60)),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: CustomSlidingSegmentedControl<int>(
+                        initialValue: 2,
+                        children: const {
+                          1: Text('One Way'),
+                          2: Text('Round Trip'),
+                          3: Text('Multicity'),
+                        },
+                        decoration: BoxDecoration(
+                          color: colors.blueColor,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        thumbDecoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(.3),
+                              blurRadius: 4.0,
+                              spreadRadius: 1.0,
+                              offset: const Offset(
+                                0.0,
+                                2.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInToLinear,
+                        onValueChanged: (v) {
+                          print(v);
+                        },
+                      ),
+                    )
+                  ],
+                ),
+              ),
             )
           ],
         ),
@@ -40,10 +91,12 @@ class MainScreen extends StatelessWidget {
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final BuildContext context;
-  const CustomAppBar({
+  CustomAppBar({
     super.key,
     required this.context,
   });
+
+  final AppColors colors = AppColors();
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +146,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             onPressed: () {},
             style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
-                iconColor: AppColors().darkBlueColor,
+                iconColor: colors.darkBlueColor,
                 shape: const CircleBorder(),
                 padding: const EdgeInsets.all(12)),
             child: const Icon(
