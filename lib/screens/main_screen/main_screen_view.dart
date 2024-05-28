@@ -38,47 +38,107 @@ class MainScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.5,
+                height: MediaQuery.of(context).size.height * 0.45,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(color: colors.lightBlueColor, borderRadius: BorderRadius.circular(60)),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: CustomSlidingSegmentedControl<int>(
-                        initialValue: 2,
-                        children: const {
-                          1: Text('One Way'),
-                          2: Text('Round Trip'),
-                          3: Text('Multicity'),
-                        },
-                        decoration: BoxDecoration(
-                          color: colors.blueColor,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        thumbDecoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(.3),
-                              blurRadius: 4.0,
-                              spreadRadius: 1.0,
-                              offset: const Offset(
-                                0.0,
-                                2.0,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: CustomSlidingSegmentedControl<int>(
+                          initialValue: 2,
+                          children: const {
+                            1: Text('One Way'),
+                            2: Text('Round Trip'),
+                            3: Text('Multicity'),
+                          },
+                          decoration: BoxDecoration(
+                            color: colors.blueColor,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          thumbDecoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(.3),
+                                blurRadius: 4.0,
+                                spreadRadius: 1.0,
+                                offset: const Offset(
+                                  0.0,
+                                  2.0,
+                                ),
                               ),
-                            ),
+                            ],
+                          ),
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeInToLinear,
+                          onValueChanged: (v) {
+                            print(v);
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20),
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                            label: Text("From"),
+                            suffixIcon: IconButton(
+                                color: Colors.white,
+                                onPressed: null,
+                                icon: Icon(
+                                  Icons.change_circle,
+                                  size: 30,
+                                )),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                              label: Text(
+                            "To",
+                          )),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 25),
+                        child: Row(
+                          children: [
+                            Expanded(
+                                child: TextFormField(
+                              decoration: const InputDecoration(
+                                  label: Text(
+                                "Depart",
+                              )),
+                            )),
+                            const Spacer(),
+                            Expanded(
+                                child: TextFormField(
+                              decoration: const InputDecoration(
+                                label: Text(
+                                  "No. of Adult",
+                                ),
+                              ),
+                            ))
                           ],
                         ),
-                        duration: const Duration(milliseconds: 300),
-                        curve: Curves.easeInToLinear,
-                        onValueChanged: (v) {
-                          print(v);
-                        },
                       ),
-                    )
-                  ],
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.07,
+                        width: MediaQuery.of(context).size.width,
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Book Now",
+                              style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.black),
+                            )),
+                      )
+                    ],
+                  ),
                 ),
               ),
             )

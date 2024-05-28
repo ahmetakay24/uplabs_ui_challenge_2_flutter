@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      theme: AppThemeData().themeData,
+      theme: AppThemeData(context).themeData,
       home: MainScreen(),
     );
   }
