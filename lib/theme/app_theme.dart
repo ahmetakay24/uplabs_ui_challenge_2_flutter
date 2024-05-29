@@ -9,7 +9,10 @@ class AppThemeData {
   ThemeData get themeData => ThemeData(
         scaffoldBackgroundColor: AppColors().darkBlueColor,
         appBarTheme: AppBarTheme(color: AppColors().darkBlueColor),
-        textTheme: const TextTheme(displaySmall: TextStyle(color: Colors.white)),
+        textTheme: const TextTheme(
+            displaySmall: TextStyle(color: Colors.white),
+            bodyMedium: TextStyle(color: Colors.white),
+            bodySmall: TextStyle(color: Colors.white70)),
         inputDecorationTheme: InputDecorationTheme(
           border: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.white70),

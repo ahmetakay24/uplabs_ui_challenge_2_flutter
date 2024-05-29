@@ -39,6 +39,8 @@ dependencies:
   #SegmentedButton
   custom_sliding_segmented_control: ^1.8.3
 
+  floating_bottom_bar: ^0.0.3
+
 
 
 dev_dependencies:
