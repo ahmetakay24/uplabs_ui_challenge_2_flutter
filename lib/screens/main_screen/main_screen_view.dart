@@ -46,66 +46,11 @@ class MainScreen extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  Container(
-                      height: MediaQuery.of(context).size.height * 0.4,
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      decoration: BoxDecoration(color: colors.lightBlueColor, borderRadius: BorderRadius.circular(20)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 13),
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Jakarta (PSN)",
-                                        style: Theme.of(context).textTheme.bodyMedium,
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 6),
-                                        child: Text(
-                                          "06:00 am",
-                                          style: Theme.of(context).textTheme.bodySmall,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Icon(
-                                    Icons.arrow_right_alt_outlined,
-                                    color: colors.goldColor,
-                                  ),
-                                  const Column(
-                                    children: [Text("DIY (YK)"), Text("10:00 pm")],
-                                  ),
-                                  Icon(
-                                    Icons.keyboard_arrow_right,
-                                    color: colors.goldColor,
-                                  )
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  const Text("data"),
-                                  Icon(
-                                    Icons.adjust,
-                                    color: colors.goldColor,
-                                  ),
-                                  const Text("data"),
-                                  Icon(
-                                    Icons.adjust,
-                                    color: colors.goldColor,
-                                  ),
-                                  const Text("data"),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ))
+                  AppSearchCard(colors: colors),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15),
+                    child: AppSearchCard(colors: colors),
+                  ),
                 ],
               ),
             )
@@ -113,6 +58,93 @@ class MainScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class AppSearchCard extends StatelessWidget {
+  const AppSearchCard({
+    super.key,
+    required this.colors,
+  });
+
+  final AppColors colors;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: MediaQuery.of(context).size.height * 0.4,
+        width: MediaQuery.of(context).size.width * 0.6,
+        decoration: BoxDecoration(color: colors.lightBlueColor, borderRadius: BorderRadius.circular(20)),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 13),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Jakarta (PSN)",
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 6),
+                          child: Text(
+                            "06:00 am",
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        )
+                      ],
+                    ),
+                    Icon(
+                      Icons.arrow_right_alt_outlined,
+                      color: colors.goldColor,
+                    ),
+                    const Column(
+                      children: [Text("DIY (YK)"), Text("10:00 pm")],
+                    ),
+                    Icon(
+                      Icons.keyboard_arrow_right,
+                      color: colors.goldColor,
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 14),
+                  child: Row(
+                    children: [
+                      Text(
+                        "20 Apr",
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 3),
+                        child: Icon(
+                          Icons.adjust,
+                          color: colors.goldColor,
+                          size: 14,
+                        ),
+                      ),
+                      Text("1 Passenger", style: Theme.of(context).textTheme.bodySmall),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 3),
+                        child: Icon(
+                          Icons.adjust,
+                          color: colors.goldColor,
+                          size: 14,
+                        ),
+                      ),
+                      Text("Economy", style: Theme.of(context).textTheme.bodySmall),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ));
   }
 }
 
