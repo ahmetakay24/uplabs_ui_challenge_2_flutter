@@ -12,7 +12,8 @@ class AppThemeData {
         textTheme: const TextTheme(
             displaySmall: TextStyle(color: Colors.white),
             bodyMedium: TextStyle(color: Colors.white),
-            bodySmall: TextStyle(color: Colors.white70)),
+            bodySmall: TextStyle(color: Colors.white70),
+            headlineMedium: TextStyle(color: Colors.white)),
         inputDecorationTheme: InputDecorationTheme(
           border: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.white70),
