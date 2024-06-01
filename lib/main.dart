@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       theme: AppThemeData(context).themeData,
-      home: const BookScreen(),
+      home: BookScreen(),
     );
   }
 }
