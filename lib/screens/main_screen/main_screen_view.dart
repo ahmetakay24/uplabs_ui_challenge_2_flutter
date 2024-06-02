@@ -1,4 +1,3 @@
-import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
 import 'package:flutter/material.dart';
 import 'package:uplabs_ui_challenge_2_flutter/core/core_utilities.dart';
 import 'package:uplabs_ui_challenge_2_flutter/screens/main_screen/widgets/appbar_and_sections/main_screen_appbar_and_sections.dart';
