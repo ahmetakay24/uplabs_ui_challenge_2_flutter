@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uplabs_ui_challenge_2_flutter/core/core_utilities.dart';
 import 'package:uplabs_ui_challenge_2_flutter/screens/main_screen/widgets/appbar_and_sections/main_screen_appbar_and_sections.dart';
 import 'package:uplabs_ui_challenge_2_flutter/screens/main_screen/widgets/buttons/main_screen_buttons.dart';
-import 'package:uplabs_ui_challenge_2_flutter/screens/main_screen/widgets/list_view_and_items/main_scren_list_view_and_items.dart';
+import 'package:uplabs_ui_challenge_2_flutter/screens/main_screen/widgets/list_view_and_items/main_screen_list_view_and_items.dart';
 
 class MainScreen extends StatelessWidget {
   MainScreen({super.key});

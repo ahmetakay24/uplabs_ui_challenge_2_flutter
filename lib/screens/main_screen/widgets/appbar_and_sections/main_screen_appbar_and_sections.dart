@@ -2,6 +2,7 @@ import 'package:custom_sliding_segmented_control/custom_sliding_segmented_contro
 import 'package:flutter/material.dart';
 import 'package:uplabs_ui_challenge_2_flutter/core/core_utilities.dart';
 import 'package:uplabs_ui_challenge_2_flutter/screens/main_screen/widgets/buttons/main_screen_buttons.dart';
+import 'package:uplabs_ui_challenge_2_flutter/screens/main_screen/widgets/text_fields/main_screen_text_fields.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final BuildContext context;
@@ -131,50 +132,17 @@ class AppBookSection extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  label: Text("From"),
-                  suffixIcon: IconButton(
-                      color: Colors.white,
-                      onPressed: null,
-                      icon: Icon(
-                        Icons.change_circle,
-                        size: 30,
-                      )),
-                ),
+              child: AppBookSectionFromTextField(
+                colors: colors,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                    label: Text(
-                  "To",
-                )),
-              ),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: AppBookSectionToTextField(),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 25),
-              child: Row(
-                children: [
-                  Expanded(
-                      child: TextFormField(
-                    decoration: const InputDecoration(
-                        label: Text(
-                      "Depart",
-                    )),
-                  )),
-                  const Spacer(),
-                  Expanded(
-                      child: TextFormField(
-                    decoration: const InputDecoration(
-                      label: Text(
-                        "No. of Adult",
-                      ),
-                    ),
-                  ))
-                ],
-              ),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 25),
+              child: AppBookSectionDepartAndPassengerTextField(),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.07,

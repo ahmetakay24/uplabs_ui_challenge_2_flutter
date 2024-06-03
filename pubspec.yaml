@@ -38,8 +38,11 @@ dependencies:
 
   #SegmentedButton
   custom_sliding_segmented_control: ^1.8.3
-
+  
+  #BottomNavigation
   floating_bottom_bar: ^0.0.3
+
+  #AutoComplete textField
   easy_autocomplete: ^1.6.0
 
 
