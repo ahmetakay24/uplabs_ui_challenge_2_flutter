@@ -136,13 +136,17 @@ class AppBookSection extends StatelessWidget {
                 colors: colors,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10),
-              child: AppBookSectionToTextField(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: AppBookSectionToTextField(
+                colors: colors,
+              ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 25),
-              child: AppBookSectionDepartAndPassengerTextField(),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 25),
+              child: AppBookSectionDepartAndPassengerTextField(
+                colors: colors,
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.07,
