@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uplabs_ui_challenge_2_flutter/core/core_utilities.dart';
 
-class AppBookSectionDepartAndPassengerTextField extends StatelessWidget {
+class AppBookSectionDepartAndPassengerTextField extends StatefulWidget {
   const AppBookSectionDepartAndPassengerTextField({
     super.key,
     required this.colors,
@@ -12,43 +12,87 @@ class AppBookSectionDepartAndPassengerTextField extends StatelessWidget {
   final AppColors colors;
 
   @override
+  State<AppBookSectionDepartAndPassengerTextField> createState() => _AppBookSectionDepartAndPassengerTextFieldState();
+}
+
+class _AppBookSectionDepartAndPassengerTextFieldState extends State<AppBookSectionDepartAndPassengerTextField> {
+  DateTime selectedDate = DateTime.now();
+  TextEditingController controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    controller.text = selectedDate.toString();
+  }
+
+  void updateText(DateTime date) {
+    setState(() {
+      selectedDate = date;
+      controller.text = "${selectedDate.year}-${selectedDate.month}-${selectedDate.day}";
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
-            flex: 4,
-            child: TextFormField(
-              decoration: const InputDecoration(prefixIcon: Icon(Icons.date_range)),
-              onTap: () {
-                //Yıl Eklenicek
-                showCupertinoModalPopup(
-                  context: context,
-                  builder: (context) {
-                    return Container(
-                      height: MediaQuery.of(context).size.height * 0.4,
-                      width: MediaQuery.of(context).size.width,
-                      color: Colors.white,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          TextButton(onPressed: () => Navigator.pop(context), child: const Text("Done")),
-                          Expanded(
-                              child: CupertinoDatePicker(
-                            onDateTimeChanged: (value) {},
-                          ))
-                        ],
-                      ),
-                    );
-                  },
-                );
-              },
-            )),
+          flex: 4,
+          child: TextFormField(
+            controller: controller,
+            readOnly: true,
+            style: const TextStyle(color: Colors.white),
+            decoration: const InputDecoration(
+              prefixIcon: Icon(
+                Icons.date_range,
+                color: Colors.white,
+              ),
+            ),
+            onTap: () {
+              showCupertinoModalPopup(
+                context: context,
+                builder: (context) {
+                  return Container(
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    width: MediaQuery.of(context).size.width,
+                    color: Colors.white,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text("Done"),
+                        ),
+                        Expanded(
+                          child: CupertinoDatePicker(
+                            mode: CupertinoDatePickerMode.date,
+                            initialDateTime: selectedDate,
+                            onDateTimeChanged: (value) {
+                              updateText(value);
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+        ),
         const Spacer(),
         Expanded(
-            flex: 4,
-            child: TextFormField(
-              decoration: const InputDecoration(),
-            ))
+          flex: 4,
+          child: TextFormField(
+            decoration: const InputDecoration(
+                prefixIcon: Icon(
+              Icons.person,
+              color: Colors.white,
+            )),
+          ),
+        ),
       ],
     );
   }
@@ -77,18 +121,7 @@ class AppBookSectionToTextField extends StatelessWidget {
           'Porto,Portugal',
           'Tokyo,Japan'
         ],
-        decoration: const InputDecoration(
-          label: Text(
-            "From",
-          ),
-          suffixIcon: IconButton(
-              color: Colors.white,
-              onPressed: null,
-              icon: Icon(
-                Icons.change_circle,
-                size: 30,
-              )),
-        ),
+        decoration: const InputDecoration(),
         suggestionBuilder: (data) {
           return Container(
               margin: const EdgeInsets.all(1),
@@ -124,9 +157,6 @@ class AppBookSectionFromTextField extends StatelessWidget {
           'Tokyo,Japan'
         ],
         decoration: const InputDecoration(
-          label: Text(
-            "From",
-          ),
           suffixIcon: IconButton(
               color: Colors.white,
               onPressed: null,

@@ -94,56 +94,73 @@ class AppBookSection extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 20),
-              child: CustomSlidingSegmentedControl<int>(
-                initialValue: 2,
-                children: const {
-                  1: Text('One Way'),
-                  2: Text('Round Trip'),
-                  3: Text('Multicity'),
-                },
-                decoration: BoxDecoration(
-                  color: colors.blueColor,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                thumbDecoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(.3),
-                      blurRadius: 4.0,
-                      spreadRadius: 1.0,
-                      offset: const Offset(
-                        0.0,
-                        2.0,
+              child: Center(
+                child: CustomSlidingSegmentedControl<int>(
+                  initialValue: 2,
+                  children: const {
+                    1: Text('One Way'),
+                    2: Text('Round Trip'),
+                    3: Text('Multicity'),
+                  },
+                  decoration: BoxDecoration(
+                    color: colors.blueColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  thumbDecoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(.3),
+                        blurRadius: 4.0,
+                        spreadRadius: 1.0,
+                        offset: const Offset(
+                          0.0,
+                          2.0,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInToLinear,
+                  onValueChanged: (v) {
+                    print(v);
+                  },
                 ),
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInToLinear,
-                onValueChanged: (v) {
-                  print(v);
-                },
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20),
+              child: Text(
+                "From",
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 1),
               child: AppBookSectionFromTextField(
                 colors: colors,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+              padding: const EdgeInsets.only(top: 10),
+              child: Text(
+                "To",
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
               child: AppBookSectionToTextField(
                 colors: colors,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 25),
+              padding: const EdgeInsets.only(bottom: 20),
               child: AppBookSectionDepartAndPassengerTextField(
                 colors: colors,
               ),
