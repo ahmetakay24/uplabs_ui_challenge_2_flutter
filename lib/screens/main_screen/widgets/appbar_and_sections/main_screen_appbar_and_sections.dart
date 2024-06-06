@@ -88,9 +88,9 @@ class AppBookSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.45,
+      height: MediaQuery.of(context).size.height * 0.48,
       width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(color: colors.lightBlueColor, borderRadius: BorderRadius.circular(60)),
+      decoration: BoxDecoration(color: colors.lightBlueColor, borderRadius: BorderRadius.circular(50)),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -99,12 +99,16 @@ class AppBookSection extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Center(
+                //CupertinoSegmented Gelicek
                 child: CustomSlidingSegmentedControl<int>(
                   initialValue: 2,
                   children: const {
-                    1: Text('One Way'),
-                    2: Text('Round Trip'),
-                    3: Text('Multicity'),
+                    1: Text(
+                      'One Way',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    2: Text('Round Trip', style: TextStyle(color: Colors.black)),
+                    3: Text('Multicity', style: TextStyle(color: Colors.black)),
                   },
                   decoration: BoxDecoration(
                     color: colors.blueColor,
@@ -134,39 +138,36 @@ class AppBookSection extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 15),
               child: Text(
                 "From",
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 1),
-              child: AppBookSectionFromTextField(
-                colors: colors,
-              ),
+            AppBookSectionFromTextField(
+              colors: colors,
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(top: 15),
               child: Text(
                 "To",
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 10),
+              padding: const EdgeInsets.only(bottom: 15),
               child: AppBookSectionToTextField(
                 colors: colors,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 20),
+              padding: const EdgeInsets.only(bottom: 15),
               child: AppBookSectionDepartAndPassengerTextField(
                 colors: colors,
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.07,
+              height: MediaQuery.of(context).size.height * 0.06,
               width: MediaQuery.of(context).size.width,
               child: const AppBookSectionBookNowButton(),
             )

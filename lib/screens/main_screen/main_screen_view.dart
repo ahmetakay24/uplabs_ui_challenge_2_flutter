@@ -23,7 +23,7 @@ class MainScreen extends StatelessWidget {
               child: AppBookSection(colors: colors),
             ),
             const Padding(
-              padding: EdgeInsets.only(top: 15),
+              padding: EdgeInsets.only(top: 10),
               child: AppYourLastSearchButtonRow(),
             ),
             AppYourSearchListView(colors: colors)

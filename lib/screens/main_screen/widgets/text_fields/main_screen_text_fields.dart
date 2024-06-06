@@ -38,59 +38,81 @@ class _AppBookSectionDepartAndPassengerTextFieldState extends State<AppBookSecti
       children: [
         Expanded(
           flex: 4,
-          child: TextFormField(
-            controller: controller,
-            readOnly: true,
-            style: const TextStyle(color: Colors.white),
-            decoration: const InputDecoration(
-              prefixIcon: Icon(
-                Icons.date_range,
-                color: Colors.white,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Depart",
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
               ),
-            ),
-            onTap: () {
-              showCupertinoModalPopup(
-                context: context,
-                builder: (context) {
-                  return Container(
-                    height: MediaQuery.of(context).size.height * 0.4,
-                    width: MediaQuery.of(context).size.width,
-                    color: Colors.white,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text("Done"),
-                        ),
-                        Expanded(
-                          child: CupertinoDatePicker(
-                            mode: CupertinoDatePickerMode.date,
-                            initialDateTime: selectedDate,
-                            onDateTimeChanged: (value) {
-                              updateText(value);
-                            },
-                          ),
-                        ),
-                      ],
+              TextFormField(
+                controller: controller,
+                readOnly: true,
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
+                  border: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.only(right: 24),
+                    child: Icon(
+                      Icons.date_range,
+                      color: Colors.white,
                     ),
+                  ),
+                ),
+                onTap: () {
+                  showCupertinoModalPopup(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        height: MediaQuery.of(context).size.height * 0.4,
+                        width: MediaQuery.of(context).size.width,
+                        color: Colors.white,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text("Done"),
+                            ),
+                            Expanded(
+                              child: CupertinoDatePicker(
+                                mode: CupertinoDatePickerMode.date,
+                                initialDateTime: selectedDate,
+                                onDateTimeChanged: (value) {
+                                  updateText(value);
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
                   );
                 },
-              );
-            },
+              ),
+            ],
           ),
         ),
         const Spacer(),
         Expanded(
           flex: 4,
-          child: TextFormField(
-            decoration: const InputDecoration(
-                prefixIcon: Icon(
-              Icons.person,
-              color: Colors.white,
-            )),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "No. of Adult",
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
+              ),
+              TextFormField(
+                decoration: const InputDecoration(
+                    prefixIcon: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                )),
+              ),
+            ],
           ),
         ),
       ],
@@ -176,4 +198,11 @@ class AppBookSectionFromTextField extends StatelessWidget {
   }
 }
 
-//
+class ShowCupertinoDatePicker extends StatelessWidget {
+  const ShowCupertinoDatePicker({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}

@@ -16,8 +16,10 @@ class AppThemeData {
             headlineMedium: TextStyle(color: Colors.white)),
         inputDecorationTheme: InputDecorationTheme(
           border: const UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.white70),
+            borderSide: BorderSide(color: Colors.white),
           ),
+          disabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
+          enabledBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
           focusedBorder: const UnderlineInputBorder(borderSide: BorderSide(color: Colors.white70)),
           labelStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white70),
         ),
