@@ -28,11 +28,17 @@ class AppYourLastSearchButtonRow extends StatelessWidget {
   }
 }
 
-class AppGroupedRadioButton extends StatelessWidget {
+class AppGroupedRadioButton extends StatefulWidget {
   const AppGroupedRadioButton({
     super.key,
   });
 
+  @override
+  State<AppGroupedRadioButton> createState() => _AppGroupedRadioButtonState();
+}
+
+class _AppGroupedRadioButtonState extends State<AppGroupedRadioButton> {
+  //disable 2/3
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -42,15 +48,26 @@ class AppGroupedRadioButton extends StatelessWidget {
         ElevatedButton(
           onPressed: () {},
           style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 40)),
-          child: const Text("Bus"),
+          child: Text(
+            "Bus",
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
         ),
-        ElevatedButton(onPressed: () {}, child: const Text("Aeroplane")),
+        ElevatedButton(
+            onPressed: () {},
+            child: Text(
+              "Aeroplane",
+              style: Theme.of(context).textTheme.bodyLarge,
+            )),
         ElevatedButton(
           onPressed: () {},
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(horizontal: 35),
           ),
-          child: const Text("Train"),
+          child: Text(
+            "Train",
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
         )
       ],
     );

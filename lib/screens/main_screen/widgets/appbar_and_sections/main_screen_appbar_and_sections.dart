@@ -1,4 +1,5 @@
 import 'package:custom_sliding_segmented_control/custom_sliding_segmented_control.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uplabs_ui_challenge_2_flutter/core/core_utilities.dart';
 import 'package:uplabs_ui_challenge_2_flutter/screens/main_screen/widgets/buttons/main_screen_buttons.dart';
@@ -77,7 +78,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => Size.fromHeight(MediaQuery.of(context).size.height * (10.36 / 100));
 }
 
-class AppBookSection extends StatelessWidget {
+class AppBookSection extends StatefulWidget {
   const AppBookSection({
     super.key,
     required this.colors,
@@ -86,11 +87,17 @@ class AppBookSection extends StatelessWidget {
   final AppColors colors;
 
   @override
+  State<AppBookSection> createState() => _AppBookSectionState();
+}
+
+class _AppBookSectionState extends State<AppBookSection> {
+  int? sliding = 0;
+  @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.48,
       width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(color: colors.lightBlueColor, borderRadius: BorderRadius.circular(50)),
+      decoration: BoxDecoration(color: widget.colors.lightBlueColor, borderRadius: BorderRadius.circular(50)),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -99,37 +106,25 @@ class AppBookSection extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Center(
-                //CupertinoSegmented Gelicek
                 child: CustomSlidingSegmentedControl<int>(
                   initialValue: 2,
-                  children: const {
+                  children: {
                     1: Text(
-                      'One Way',
-                      style: TextStyle(color: Colors.black),
+                      'One way',
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(),
                     ),
-                    2: Text('Round Trip', style: TextStyle(color: Colors.black)),
-                    3: Text('Multicity', style: TextStyle(color: Colors.black)),
+                    2: Text('Round Trip', style: Theme.of(context).textTheme.bodyLarge?.copyWith()),
+                    3: Text('MultiCity', style: Theme.of(context).textTheme.bodyLarge?.copyWith()),
                   },
                   decoration: BoxDecoration(
-                    color: colors.blueColor,
+                    color: widget.colors.disableBlue,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   thumbDecoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(.3),
-                        blurRadius: 4.0,
-                        spreadRadius: 1.0,
-                        offset: const Offset(
-                          0.0,
-                          2.0,
-                        ),
-                      ),
-                    ],
+                    borderRadius: BorderRadius.circular(17),
                   ),
-                  duration: const Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 200),
                   curve: Curves.easeInToLinear,
                   onValueChanged: (v) {
                     print(v);
@@ -145,7 +140,7 @@ class AppBookSection extends StatelessWidget {
               ),
             ),
             AppBookSectionFromTextField(
-              colors: colors,
+              colors: widget.colors,
             ),
             Padding(
               padding: const EdgeInsets.only(top: 15),
@@ -157,13 +152,13 @@ class AppBookSection extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(bottom: 15),
               child: AppBookSectionToTextField(
-                colors: colors,
+                colors: widget.colors,
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 15),
               child: AppBookSectionDepartAndPassengerTextField(
-                colors: colors,
+                colors: widget.colors,
               ),
             ),
             SizedBox(
