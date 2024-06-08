@@ -38,7 +38,6 @@ class AppGroupedRadioButton extends StatefulWidget {
 }
 
 class _AppGroupedRadioButtonState extends State<AppGroupedRadioButton> {
-  //disable 2/3
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -46,7 +45,7 @@ class _AppGroupedRadioButtonState extends State<AppGroupedRadioButton> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         ElevatedButton(
-          onPressed: () {},
+          onPressed: null,
           style: ElevatedButton.styleFrom(padding: const EdgeInsets.symmetric(horizontal: 40)),
           child: Text(
             "Bus",
@@ -54,13 +53,13 @@ class _AppGroupedRadioButtonState extends State<AppGroupedRadioButton> {
           ),
         ),
         ElevatedButton(
-            onPressed: () {},
+            onPressed: null,
             child: Text(
               "Aeroplane",
               style: Theme.of(context).textTheme.bodyLarge,
             )),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: null,
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(horizontal: 35),
           ),
