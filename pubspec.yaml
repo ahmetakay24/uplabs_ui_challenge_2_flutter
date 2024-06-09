@@ -45,6 +45,9 @@ dependencies:
   #AutoComplete textField
   easy_autocomplete: ^1.6.0
 
+  #Text
+  auto_size_text: ^3.0.0
+
 
 
 dev_dependencies:
