@@ -1,6 +1,4 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:uplabs_ui_challenge_2_flutter/core/core_utilities.dart';
 
 class TicketDetailsScreen extends StatelessWidget {
@@ -126,57 +124,20 @@ class TicketDetailsScreen extends StatelessWidget {
                           )
                         ],
                       ),
-                      Text(
-                        "Ref. 12344",
-                        style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.black),
-                      ),
-                      const Divider(
-                        thickness: 2,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Traveling Date",
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
-                              ),
-                              Text(
-                                "10 May 2024",
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
-                              )
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              Text(
-                                "Seat No.",
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
-                              ),
-                              Text(
-                                "L 14",
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
-                              )
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                "Bus Number",
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
-                              ),
-                              Text(
-                                "SJ72HPC",
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
-                              )
-                            ],
-                          ),
-                        ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25, bottom: 15),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Ref. 12344",
+                              style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.black),
+                            ),
+                            const Divider(
+                              thickness: 2,
+                            ),
+                          ],
+                        ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -185,25 +146,67 @@ class TicketDetailsScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text(
-                                "Boarding Time",
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Traveling Date",
+                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
+                                  ),
+                                  Text(
+                                    "10 May 2024",
+                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                                  )
+                                ],
                               ),
-                              Text(
-                                "01:05 pm EST",
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                              const SizedBox(
+                                height: 25,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Boarding Time",
+                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
+                                  ),
+                                  Text(
+                                    "01:05 pm EST",
+                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                                  )
+                                ],
                               )
                             ],
                           ),
                           Column(
                             children: [
-                              Text(
-                                "Adult",
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
+                              Column(
+                                children: [
+                                  Text(
+                                    "Seat No.",
+                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
+                                  ),
+                                  Text(
+                                    "L 14",
+                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                                  )
+                                ],
                               ),
-                              Text(
-                                "01 Adult",
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                              const SizedBox(
+                                height: 25,
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    "Adult",
+                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
+                                  ),
+                                  Text(
+                                    "01 Adult",
+                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                                  )
+                                ],
                               )
                             ],
                           ),
@@ -211,13 +214,36 @@ class TicketDetailsScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.end,
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Text(
-                                "Class",
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    "Bus Number",
+                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
+                                  ),
+                                  Text(
+                                    "SJ72HPC",
+                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                                  )
+                                ],
                               ),
-                              Text(
-                                "Business",
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                              const SizedBox(
+                                height: 25,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    "Class",
+                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black54),
+                                  ),
+                                  Text(
+                                    "Business",
+                                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.black),
+                                  )
+                                ],
                               )
                             ],
                           ),
@@ -229,7 +255,8 @@ class TicketDetailsScreen extends StatelessWidget {
               ),
               Container(
                 height: MediaQuery.of(context).size.height * 0.35,
-                decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(35)),
+                decoration: BoxDecoration(color: colors.navyBlue, borderRadius: BorderRadius.circular(35)),
+                child: Image.asset("assets/images/bus_seats.jpeg"),
               ),
               const ElevatedButton(onPressed: null, child: Text("Download Ticket"))
             ],
